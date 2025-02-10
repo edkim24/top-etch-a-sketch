@@ -1,52 +1,31 @@
 'use strict';
 
-const newDiv = document.createElement('div');
-
 const divContainer = document.querySelector('.grid-container');
-
-// newDiv.setAttribute('class', 'child-div');
 
 //we loop over and create divs, setting an attribute of either a row or column
 
-for (let i = 1; i <= 256; i++) {
+for (let i = 0; i < 16; ++i) {
 	let rowDiv = document.createElement('div');
 	divContainer.appendChild(rowDiv);
 	rowDiv.setAttribute('id', `row-${i}`);
+	rowDiv.classList.add('row-div');
 
-	if (i % 2 === 0) {
-		rowDiv.setAttribute('class', 'row-even');
-		rowDiv.classList.add('row');
-	} else if (i % 2 === 1) {
-		rowDiv.setAttribute('class', 'row-odd');
-		rowDiv.classList.add('row');
+	for (let i = 0; i < 16; ++i) {
+		let cellDiv = document.createElement('div');
+		rowDiv.appendChild(cellDiv);
+		cellDiv.setAttribute('id', `cell-${i}`);
+		cellDiv.classList.add('cellDiv');
 	}
 }
 
-// we try using mouseover event -
-// we get it to the target
+const cellEl = [...document.querySelectorAll('.cellDiv')];
 
-// divContainer.addEventListener('mouseover', e => {
-// 	e.preventDefault();
-// 	e.target.classList.toggle('black-div');
-// });
-
-// how about, we query all the elements, create an array from them, and add the event listeners to the array
-
-const rowEl = [...document.querySelectorAll('.row')];
-
-rowEl.forEach(row => {
-	row.addEventListener('mouseenter', e => {
+cellEl.forEach(cell => {
+	cell.addEventListener('mouseenter', e => {
 		e.preventDefault();
-		row.classList.toggle('black-div');
+		cell.classList.toggle('black-div');
 	});
 });
-
-// rowEl.forEach(row => {
-// 	row.addEventListener('mouseleave', e => {
-// 		e.preventDefault();
-// 		row.classList.toggle('black-div');
-// 	});
-// });
 
 const popupBtn = document.querySelector('button');
 
