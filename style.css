@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	outline: 2px red solid;
+}
+
+body {
+	background-color: burlywood;
+}
+
+/* .grid-container {
+	max-width: 1000px;
+	max-height: 1000px;
+} */
+
+/* .row-div {
+	display: flex;
+	max-width: fit-content;
+} */
+
+/* .cellDiv {
+	width: 20px;
+	height: 20px;
+} */
+
+.black-div {
+	background-color: black;
+}
