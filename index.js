@@ -42,6 +42,12 @@ divContainer.style.maxWidth = 'fit-content';
 divContainer.style.maxHeight = 'fit-content';
 
 maxWidth = +getComputedStyle(divContainer).width.slice(0, 3);
+
+divContainer.style.width = maxWidth;
+divContainer.style.height = maxWidth;
+
+console.log(maxWidth);
+
 // we get the computed max value for use in our other grids
 
 // event handler to change color
@@ -78,4 +84,33 @@ popupBtn.addEventListener('click', e => {
 	do {
 		gridPrompt = +prompt('please enter a value between 1 and 100');
 	} while (gridPrompt <= 0 || gridPrompt > 100);
+
+	// delete previous grid contents
+	divContainer.innerHTML = '';
+	divContainer.maxWidth = divContainer.maxHeight = maxWidth;
+
+	for (let i = 0; i < gridPrompt; i++) {
+		const rowDiv = document.createElement('div');
+		rowDiv.setAttribute('id', `row-${i}`);
+		rowDiv.style.display = 'flex';
+		rowDiv.style.maxWidth = 'fit-content';
+		divContainer.appendChild(rowDiv);
+		for (let i = 0; i < gridPrompt; ++i) {
+			const cellDiv = document.createElement('div');
+			cellDiv.setAttribute('id', `cell-${i}`);
+
+			cellDiv.style.width = cellDiv.style.height = `${
+				(maxWidth - (maxWidth % gridPrompt)) /
+				gridPrompt
+			}px`;
+			cellDiv.classList.add(`row-${i}`);
+			cellDiv.classList.add(`cell`);
+			rowDiv.appendChild(cellDiv);
+		}
+		//query to find out max width of grid
+	}
 });
+
+console.log(maxWidth);
+
+//next we need to refactor
