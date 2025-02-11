@@ -16,6 +16,30 @@ into the max grid width
 
 */
 
+//refactor code
+
+// const createGrid = function (number = 16, size = 50) {
+// 	for (let i = 0; i < number; i++) {
+// 		const rowDiv = document.createElement('div');
+// 		rowDiv.setAttribute('id', `row-${i}`);
+// 		rowDiv.style.display = 'flex';
+// 		rowDiv.style.maxWidth = 'fit-content';
+// 		divContainer.appendChild(rowDiv);
+// 		for (let i = 0; i < number; ++i) {
+// 			const cellDiv = document.createElement('div');
+// 			cellDiv.setAttribute('id', `cell-${i}`);
+// 			cellDiv.style.width = `${size}px`;
+// 			cellDiv.style.height = `${size}px`;
+// 			cellDiv.classList.add(`row-${i}`);
+// 			cellDiv.classList.add(`cell`);
+// 			rowDiv.appendChild(cellDiv);
+// 		}
+// 		//query to find out max width of grid
+// 	}
+// };
+
+// createGrid();
+
 // we create a 16 by 16 grid
 let maxWidth;
 
@@ -36,7 +60,7 @@ for (let i = 0; i < 16; i++) {
 	}
 	//query to find out max width of grid
 }
-// we set the max width and height of the container to the output of the create grid
+// // we set the max width and height of the container to the output of the create grid
 
 divContainer.style.maxWidth = 'fit-content';
 divContainer.style.maxHeight = 'fit-content';
@@ -46,12 +70,12 @@ maxWidth = +getComputedStyle(divContainer).width.slice(0, 3);
 divContainer.style.width = maxWidth;
 divContainer.style.height = maxWidth;
 
-console.log(maxWidth);
+// console.log(maxWidth);
 
-// we get the computed max value for use in our other grids
+// // we get the computed max value for use in our other grids
 
-// event handler to change color
-// we tie it to the entire grid
+// // event handler to change color
+// // we tie it to the entire grid
 
 const getRandomValue = function () {
 	return Math.floor(Math.random() * 255) + 1;
@@ -61,9 +85,7 @@ const getRandomColor = function () {
 	return `rgb(${getRandomValue()},${getRandomValue()},${getRandomValue()})`;
 };
 
-// console.log(randomColor);
-
-const [...cells] = document.querySelectorAll('.cell');
+// // console.log(randomColor);
 
 let opacity = 0;
 
@@ -74,7 +96,7 @@ divContainer.addEventListener('mouseover', e => {
 	e.target.style.opacity = `${opacity}%`;
 });
 
-//popup button event handler
+// //popup button event handler
 
 const popupBtn = document.querySelector('button');
 
@@ -111,6 +133,6 @@ popupBtn.addEventListener('click', e => {
 	}
 });
 
-console.log(maxWidth);
+// console.log(maxWidth);
 
-//next we need to refactor
+// //next we need to refactor
