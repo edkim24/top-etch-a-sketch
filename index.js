@@ -44,8 +44,6 @@ divContainer.style.maxHeight = 'fit-content';
 maxWidth = +getComputedStyle(divContainer).width.slice(0, 3);
 // we get the computed max value for use in our other grids
 
-console.log(maxWidth);
-
 // event handler to change color
 // we tie it to the entire grid
 
@@ -68,5 +66,16 @@ divContainer.addEventListener('mouseover', e => {
 	e.target.style.backgroundColor = `${getRandomColor()}`;
 	opacity === 100 ? (opacity = 10) : (opacity += 10);
 	e.target.style.opacity = `${opacity}%`;
-	console.log(opacity);
+});
+
+//popup button event handler
+
+const popupBtn = document.querySelector('button');
+
+popupBtn.addEventListener('click', e => {
+	e.preventDefault();
+	let gridPrompt = 0;
+	do {
+		gridPrompt = +prompt('please enter a value between 1 and 100');
+	} while (gridPrompt <= 0 || gridPrompt > 100);
 });
